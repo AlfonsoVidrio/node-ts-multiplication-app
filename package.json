@@ -1,0 +1,30 @@
+{
+  "name": "multiplication-app",
+  "version": "1.0.0",
+  "description": "Una herramienta de línea de comandos en Node.js para generar tablas de multiplicar y guardarlas en archivos de texto. Permite la personalización de la base, límite y formato de salida, así como la opción de visualizar la tabla en la consola.",
+  "main": "dist/app.js",
+  "bin": {
+    "multiplication-app": "dist/app.js"
+  },
+  "scripts": {
+    "dev": "ts-node src/app.ts -b",
+    "dev:nodemon": "nodemon -b",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/app.js -b"
+  },
+  "keywords": ["multiplication"],
+  "author": "Alfonso Manuel Vidrio Lizaola",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "@types/yargs": "^17.0.32",
+    "nodemon": "^3.1.4",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "yargs": "^17.7.2"
+  }
+}
