@@ -1,7 +1,7 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-export const yarg = yargs( process.argv )
+export const yarg = yargs(hideBin(process.argv))
     .option('b', {
         alias: 'base',
         type: 'number',
@@ -19,25 +19,23 @@ export const yarg = yargs( process.argv )
         type: 'boolean',
         default: false,
         describe: 'Show multiplication table'
-    }).
-    option('n',{
+    })
+    .option('n', {
         alias: 'name',
         type: 'string',
         default: 'multiplication-table.txt',
         describe: 'File name'
-    }).
-    option('d',{
+    })
+    .option('d', {
         alias: 'destination',
         type: 'string',
         default: 'outputs',
         describe: 'File destination'
-    }).
-    check(( argv, options ) => {
-        
-        // console.log({argv, options});
-
-        if( argv.b < 1 ) throw 'Error: base must be greater that 0';
-
+    })
+    .check((argv, options) => {
+        if (typeof argv.b !== 'number' || argv.b < 1) {
+            throw new Error('Error: base must be a number greater than 0');
+        }
         return true;
     })
-    .parseSync()
+    .parseSync();

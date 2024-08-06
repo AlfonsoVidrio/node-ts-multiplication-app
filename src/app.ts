@@ -2,8 +2,6 @@
 import { yarg } from "./config/plugins/args.plugin";
 import { serverApp } from "./presentation/server-app";
 
-// console.log(argvs.b);
-
 ( async () => {
     await main();
 })();
