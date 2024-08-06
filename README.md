@@ -108,6 +108,7 @@ multiplication-app --b 8 --l 10 --s --n table.txt --d outputs
 
 Esto generará la tabla de multiplicar con base 8, límite 10, la mostrará en la consola, y guardará el archivo en la ubicación actual o especificada.
 
+```
 Server running...
 8 x 1 = 8
 8 x 2 = 16
@@ -119,3 +120,4 @@ Server running...
 8 x 8 = 64
 8 x 9 = 72
 8 x 10 = 80
+```
