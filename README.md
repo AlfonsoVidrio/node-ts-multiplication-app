@@ -1,73 +1,75 @@
-# Generador de Tablas de Multiplicar
+# Multiplication Table Generator
 
-## Descripción
+## Description
 
-Esta aplicación en Node.js, desarrollada con TypeScript y la biblioteca `yargs`, genera tablas de multiplicar y las guarda en archivos de texto. Ofrece una manera flexible de configurar la base y el límite de la tabla, así como opciones para mostrar la tabla en la consola y personalizar el nombre del archivo y la carpeta de destino.
+This Node.js application, developed with TypeScript and the `yargs` library, generates multiplication tables and saves them as text files. It provides a flexible way to configure the base and limit of the table, with options to display the table in the console and customize the file name and destination folder.
 
-## Funcionalidades
+## Features
 
-- **Generación de Tablas de Multiplicar**: Crea tablas de multiplicar para cualquier base numérica.
-- **Límites Configurables**: Define hasta qué número se multiplicará la base. El límite por defecto es 10.
-- **Visualización en Consola**: Opción para mostrar la tabla de multiplicar en la consola.
-- **Salida en Archivos de Texto**: Guarda la tabla generada en un archivo de texto, con opciones para personalizar el nombre del archivo y la carpeta destino.
-- **Validación de Entradas**: Verifica que la base de la tabla sea un número mayor que cero.
+- **Multiplication Table Generation**: Creates multiplication tables for any numeric base.
+- **Configurable Limits**: Set the upper limit for multiplication. Default is 10.
+- **Console Display**: Option to print the multiplication table in the console.
+- **Text File Output**: Saves the generated table to a text file, with customizable file name and destination folder.
+- **Input Validation**: Ensures the base number is greater than zero.
 
-## Instalación
+## Installation
 
-1. Clona el repositorio:
+1. Clone the repository:
 
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/AlfonsoVidrio/note-ts-multiplication-app
     ```
 
-2. Navega al directorio del proyecto:
+2. Navigate to the project directory:
     ```bash
-    cd tu-repositorio
+    cd note-ts-multiplication-app
     ```
 
-3. Instala las dependencias:
+3. Install dependencies:
     ```bash
     npm install
     ```
 
-## Uso
+## Usage
 
-- Para ejecutar la aplicación, utiliza cualquiera de los siguientes comandos con los parámetros necesarios:
+- To run the application, use one of the following commands with the required parameters:
     ```bash
     npx ts-node src/app.ts --b <base> --l <limit> --s --d <destination> --n <name>
 
     npm run dev -- --b <base> --l <limit> --s --d <destination> --n <name>
     ```
-## Parámetros
+## Parameters
 
-- **-base o -b**: Define la base para la tabla de multiplicar. Este parámetro es obligatorio.
+- **--base or -b**: Sets the base number for the multiplication table. This parameter is required.
 
-- **-limit o -l**: Establece el límite hasta el cual se multiplicará la base. Opcional, por defecto es 10.
+- **--limit or -l**: Sets the maximum multiplier. *Optional*, defaults to `10`.
 
-- **-show o -s**: Indica si la tabla debe ser mostrada en la consola. Opcional, por defecto es false.
+- **--show or -s**: Indicates whether the table should be displayed in the console. *Optional*, defaults to `false`.
 
-- **-name o -n**: Nombre del archivo donde se guardará la tabla. Opcional, por defecto es multiplication-table.txt
+- **--name or -n**: Name of the output file where the table will be saved. *Optional*, defaults to `multiplication-table.txt`.
 
-- **-destinarion o -d**: Carpeta destino donde se guardará el archivo. Opcional, por defecto es outputs.
+- **--destination or -d**: Output folder where the file will be saved. *Optional*, defaults to `outputs`.
 
-## Ejemplo
+## Example
 
-- Para generar una tabla de multiplicar con base 10, límite 4, mostrarla en la consola, y guardarla en un archivo llamado tablas-multiplicar1.txt en la carpeta new-outputs, usa el siguiente comando:
-    ```bash
-    ts-node src/app.ts -b 10 -l 4 -s -d outputs -n table.txt
-    ```
+To generate a multiplication table with base `10`, limit `4`, display it in the console, and save it in a file named `table.txt` inside the `outputs` folder, use the following command:
 
-#### En este ejemplo:
+   ```bash
+   ts-node src/app.ts -b 10 -l 4 -s -d outputs -n table.txt
+   ```
 
-La base de la tabla es 10.
-El límite de multiplicación es 4.
-La tabla se mostrará en la consola (-s).
-El archivo se guardará en la carpeta outputs con el nombre tablas-multiplicar.txt.
+#### In this example:
 
-Empaquetado para Usar como CLI
-Para empaquetar y utilizar esta aplicación como una herramienta de línea de comandos global, sigue estos pasos:
+- The table base is `10`.  
+- The multiplication limit is `4`.  
+- The table will be displayed in the console (`-s`).  
+- The file will be saved in the `outputs` folder with the name `tablas-multiplicar.txt`.
 
-Asegúrate de que package.json tenga el campo bin correctamente configurado:
+## Packaging for CLI Use
+
+To package and use this application as a global command-line tool, follow these steps:
+
+Make sure the `package.json` file has the `bin` field properly configured:
 
 ```json
 "bin": {
@@ -75,38 +77,38 @@ Asegúrate de que package.json tenga el campo bin correctamente configurado:
 }
 ```
 
-Esto indica a npm que el comando multiplication-app debe ejecutar el archivo dist/app.js.
+This tells npm that the `multiplication-app` command should run the `dist/app.js` file.
 
-Compila el código TypeScript a JavaScript:
+### Compile the TypeScript code to JavaScript
 
-Ejecuta el siguiente comando para transpilar el código a JavaScript:
+Run the following command to transpile the code to JavaScript:
 
 ```bash
 npm run build
 ```
-Vincula el paquete globalmente:
+Link the package globally:
 
-Primero, desvincula cualquier instalación previa del paquete:
+First, unlink any previous global installation of the package:
 
 ```bash
 npm unlink -g multiplication-app
 ```
-Luego, vincula el paquete localmente para instalación global:
+Then, link the package locally for global use:
 
 ```bash
 npm link
 ```
-Esto creará un enlace simbólico global que te permitirá ejecutar multiplication-app desde cualquier lugar en tu terminal.
+This will create a global symbolic link that allows you to run multiplication-app from anywhere in your terminal.
 
-Ejecuta el comando globalmente:
+Run the command globally:
 
-Ahora puedes usar el comando multiplication-app en cualquier lugar de tu sistema. Por ejemplo:
+Now you can use the `multiplication-app` command anywhere on your system. For example:
 
 ```bash
 multiplication-app --b 8 --l 10 --s --n table.txt --d outputs
 ```
 
-Esto generará la tabla de multiplicar con base 8, límite 10, la mostrará en la consola, y guardará el archivo en la ubicación actual o especificada.
+This will generate a multiplication table with base `8`, limit `10`, display it in the console, and save the file in the specified or current location.
 
 ```
 Server running...
